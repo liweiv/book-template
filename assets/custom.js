@@ -1,7 +1,23 @@
 var initAll = function () {
   var path = window.location.pathname
+
   if (path.endsWith('/print.html')) {
     return
+  }
+  var url = window.location.href
+  // console.log('url:', url)
+  // console.log('path:', path)
+  if (
+    path == '/flutter-rust-app-dev/' ||
+    path === '/' ||
+    path == '/flutter-rust-app-dev'
+  ) {
+    if (path.endsWith('/')) {
+      window.location.href = `${path}intro.html`
+      return
+    } else {
+      window.location.href = `${path}/intro.html`
+    }
   }
 
   var images = document.querySelectorAll('main img')
@@ -100,9 +116,7 @@ var initAll = function () {
     iframe.contentWindow.postMessage({ giscus: msg }, 'https://giscus.app')
   })
 
-  let pagePath = window.location.pathname
-
-  pagePath = pagePath.replace('flutter-rust-app-dev/', '')
+  let pagePath = path.replace('flutter-rust-app-dev/', '')
   pagePath = pagePath.replace('.html', '')
   if (pagePath.length > 0) {
     if (pagePath.charAt(0) == '/') {
@@ -114,6 +128,7 @@ var initAll = function () {
   } else {
     pagePath = 'index'
   }
+  // console.log('pagePath:', pagePath)
 
   // add visitors count
   var ele = document.createElement('div')
@@ -154,7 +169,7 @@ var initAll = function () {
   script.setAttribute('data-emit-metadata', '0')
   script.setAttribute('data-input-position', 'top')
   script.setAttribute('data-theme', theme)
-  script.setAttribute("data-lang", lang);
+  script.setAttribute('data-lang', lang)
   // 预先加载评论会更好，这样用户读到那边时，评论就加载好了
   // script.setAttribute("data-loading", "lazy");
   document.getElementById('giscus-container').appendChild(script)
