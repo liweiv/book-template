@@ -131,17 +131,17 @@ var initAll = function () {
   // console.log('pagePath:', pagePath)
 
   // add visitors count
-  var ele = document.createElement('div')
-  ele.setAttribute('align', 'center')
-  var count = document.createElement('img')
-  count.setAttribute(
-    'src',
-    'https://visitor-badge.glitch.me/badge?page_id=' + path
-  )
-  ele.appendChild(count)
+  // var ele = document.createElement('div')
+  // ele.setAttribute('align', 'center')
+  // var count = document.createElement('img')
+  // count.setAttribute(
+  //   'src',
+  //   'https://visitor-badge.glitch.me/badge?page_id=' + path
+  // )
+  // ele.appendChild(count)
   var divider = document.createElement('hr')
 
-  document.getElementById('giscus-container').appendChild(ele)
+  // document.getElementById('giscus-container').appendChild(ele)
   document.getElementById('giscus-container').appendChild(divider)
 
   // 选取浏览器默认使用的语言
